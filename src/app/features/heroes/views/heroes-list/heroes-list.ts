@@ -1,4 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
+import { Router } from '@angular/router';
 import { HeroeService } from '@app/features/heroes/services/heroe.service';
 import { Spinner } from '@app/shared/components/spinner/spinner';
 import { Table } from '@app/shared/components/table/table';
@@ -15,6 +16,7 @@ import { KeysTable, OptionsTable } from '@app/core/interfaces/table-component.in
 })
 export class HeroesList {
   private _heroeService = inject(HeroeService);
+  private _router = inject(Router);
 
   isLoadingTable = signal(true);
   existError = signal(false);
@@ -60,6 +62,12 @@ export class HeroesList {
   }
 
   getAll({ size, page } = { size: 10, page: 1 }) {
+    if(history.state?.paginatorState) {
+      size = history.state?.paginatorState.pageSize;
+      page = history.state?.paginatorState.pageIndex + 1;
+      history.replaceState({}, '');
+    }
+
     this._heroeService.getAll({ size, page }).subscribe({
       next: (response) => {
         if(!response || !response?.items.length) {
@@ -94,7 +102,10 @@ export class HeroesList {
   }
 
   goToDetail(event: Heroe) {
-    console.log(event);
+    this._router.navigate(["heroes/detail"], {
+      queryParams: { id: event.id },
+      state: { paginatorState: { ...this.optionsTable.paginator } }
+    });
   }
   
 }

@@ -32,3 +32,11 @@
         overflow: hidden !important;
     }
 }
+
+:host ::ng-deep .mat-mdc-paginator-container {
+    justify-content: center !important;
+}
+
+:host ::ng-deep .mat-mdc-paginator-range-label {
+    margin: 0 16px !important;
+}

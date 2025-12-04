@@ -13,7 +13,7 @@
 
   } @else {
     <div class="col-span-12 overflow-auto scroll py-0 px-0">
-      <table mat-table [dataSource]="dataSource" matSort>
+      <table mat-table [dataSource]="dataSource" matSort class="bg-white!">
         @for (header of keyHeaderColumns; track header) {
           <div class="p-0 m-0">
             @if (header == 'actionsTable') {
@@ -57,7 +57,7 @@
     <div class="col-span-12">
       <mat-paginator
         showFirstLastButtons
-        class="pt-2! sm:pt-0! text-sm! sm:text-base!"
+        class="bg-white! pt-2! sm:pt-0! text-sm! sm:text-base! flex! justify-center! items-center!"
         [pageSizeOptions]="optionsTable.paginator.perPage!"
         [length]="optionsTable.paginator.length!"
         [pageSize]="optionsTable.paginator.pageSize!"
