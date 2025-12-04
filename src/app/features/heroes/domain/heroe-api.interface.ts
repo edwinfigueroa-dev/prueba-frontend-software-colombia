@@ -1,4 +1,4 @@
-export interface Heroe {
+export interface ResponseHeroeApi {
     length:     number;
     size:       number;
     page:       number;
@@ -6,10 +6,10 @@ export interface Heroe {
     lastPage:   number;
     startIndex: number;
     endIndex:   number;
-    items:      Item[];
+    items:      Heroe[];
 }
 
-export interface Item {
+export interface Heroe {
     biography:   Biography;
     work:        Work;
     slug:        string;

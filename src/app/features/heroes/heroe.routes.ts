@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
     {
         path: '',
-        loadChildren: () => import('./features/features.routes').then(r => r.routes),
+        loadComponent: () => import("./views/heroes").then(c => c.Heroes),
     },
     {
         path: '**',
