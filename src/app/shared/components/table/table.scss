@@ -1,0 +1,34 @@
+:host ::ng-deep .mat-mdc-text-field-wrapper {
+    padding: 0 16px !important;
+    background: transparent !important;
+    height: 36px !important;
+}
+
+:host ::ng-deep .mat-mdc-form-field-infix {
+    padding: 8px 0 !important;
+}
+
+:host ::ng-deep .mat-mdc-form-field-subscript-wrapper {
+    display: none !important;
+}
+
+:host ::ng-deep .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
+    top: calc(36px / 2);
+}
+
+#table-header th {
+    border: none !important;
+}
+
+#table-body td {
+    border-color: #dcdcdc !important;
+}
+
+@media screen and (max-width: 1200px) {
+    #table-body td {
+        max-width: 300px !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+    }
+}

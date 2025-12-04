@@ -8,7 +8,7 @@ import { Heroe } from '../domain/heroe-api.interface';
 export class HeroeService {
     private _heroeRepository: IHeroeRepository = inject(HEROE_REPOSITORY);
 
-    getAll(query = { size: 10, page: 1 }): Observable<any> {
+    getAll(query = { size: 10, page: 1 }) {
         return this._heroeRepository.getAll(query);
     }
 

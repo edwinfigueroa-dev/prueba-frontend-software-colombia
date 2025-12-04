@@ -10,8 +10,8 @@ import { environment } from '@environments/environment';
 export class HeroeRepository implements IHeroeRepository {
   private _httpClient: IHttpClient = inject(HTTP_CLIENT);
 
-  getAll({ size, page }: { size: number, page: number }): Observable<ResponseHeroeApi[]> {
-    return this._httpClient.get<ResponseHeroeApi[]>(`${environment.API_URL}/heroes?size=${size}&page=${page}`);
+  getAll({ size, page }: { size: number, page: number }): Observable<ResponseHeroeApi> {
+    return this._httpClient.get<ResponseHeroeApi>(`${environment.API_URL}/heroes?size=${size}&page=${page}`);
   }
 
   getById(id: number): Observable<Heroe> {

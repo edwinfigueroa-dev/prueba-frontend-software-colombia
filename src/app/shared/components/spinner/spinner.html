@@ -1,0 +1,6 @@
+<div [ngClass]="{ 'container-spinner': fullPage, 'mt-2': !fullPage}">
+  <mat-spinner 
+    [ngClass]="{ 'white-spinner': color == 'white', 'green-spinner': color == 'green' }"
+    [diameter]="diameter"
+  ></mat-spinner>
+</div>

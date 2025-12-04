@@ -1,0 +1,25 @@
+<div class="grid grid-cols-12 p-2 sm:p-4 pb-0 m-0 bg-white rounded-lg">
+  @if (isLoadingTable()) {
+    <div class="col-span-12 flex justify-center items-start py-4">
+      <app-spinner></app-spinner>
+    </div>
+  } @else {
+    @if (existError()) {
+      <div class="col-span-12 text-center line-height-3 my-5">
+        <p class="m-0 p-0 text-base font-bold text-gray-500">Hubo un error al cargar los datos, por favor recargue la página o intente más tarde.</p>
+      </div>
+    } @else {
+      <div class="col-span-12">
+        <app-table
+          [keyHeaderColumns]="keyHeaderColumns"
+          [optionsColumns]="optionsColumns"
+          [optionsTable]="optionsTable"
+          [dataSource]="dataSource"
+          (onAction)="goToDetail($event)"
+          (onPage)="onChangePages($event)"
+          >
+        </app-table>
+      </div>
+    }
+  }
+</div>
